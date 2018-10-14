@@ -4,10 +4,10 @@
   hosts: all
 
   tasks:
-  - name: Add epel-release repo
-    yum:
-      name: epel-release
-      state: present
+  # - name: Add epel-release repo
+  #   yum:
+  #     name: epel-release
+  #     state: present
 
   - name: Install nginx
     yum:
