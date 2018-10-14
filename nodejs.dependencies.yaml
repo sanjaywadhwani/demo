@@ -1,6 +1,7 @@
 ---
 - name: Install nginx
   become: true
+  hosts: all
 
   tasks:
   - name: Add epel-release repo
