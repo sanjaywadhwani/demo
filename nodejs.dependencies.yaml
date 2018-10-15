@@ -19,3 +19,23 @@
       service:
           name: docker
           state: started
+          
+    - name: return motd to registered var
+      command: docker run -p 4000:80 -d nginxdemos/hello
+      
+      
+    - name: copy the nginx config file and restart nginx
+      copy:
+        src: hello-nginx.cfg
+        dest: /etc/nginx/sites-available/hello-nginx.cfg
+
+    - name: create symlink
+      file:
+        src: /etc/nginx/sites-available/hello-nginx.cfg
+        dest: /etc/nginx/sites-enabled/hello-nginx.cfg
+        state: link
+        
+    - name: restart nginx
+      service:
+        name: nginx
+        state: restarted
