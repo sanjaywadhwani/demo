@@ -14,3 +14,8 @@
 
     - name: install docker
       script: get-docker.sh
+
+    - name: start docker
+      service:
+          name: docker
+          state: started
