@@ -4,16 +4,10 @@
   hosts: all
 
   tasks:
-  - name: Add repository
-    yum_repository:
-      name: epel
-      description: EPEL YUM repo
-      baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
-
-  # - name: Add epel-release repo
-  #   yum:
-  #     name: epel-release
-  #     state: present
+  - name: Add epel-release repo
+    yum:
+      name: epel-release
+      state: present
 
   - name: Install nginx
     yum:
