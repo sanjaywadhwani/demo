@@ -11,3 +11,6 @@
       service:
           name: nginx
           state: started
+
+    - name: install docker
+      script: get-docker.sh
